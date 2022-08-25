@@ -1,12 +1,12 @@
-import React from "react";
-import { Redirect, useParams } from "react-router-dom";
-import { Card, CardBody, CardTitle, CardText } from "reactstrap";
+import React from 'react'
+import { Redirect, useParams } from 'react-router-dom'
+import { Card, CardBody, CardTitle, CardText } from 'reactstrap'
 
-function Item({ items, cantFind }) {
-  const { id } = useParams();
+function Item ({ items, cantFind }) {
+  const { id } = useParams()
 
-  let item = items.find(item => item.id === id);
-  if (!item) return <Redirect to={cantFind} />;
+  const item = items.find(item => item.id === id)
+  if (!item) return <Redirect to={cantFind} />
 
   return (
     <section>
@@ -25,7 +25,7 @@ function Item({ items, cantFind }) {
         </CardBody>
       </Card>
     </section>
-  );
+  )
 }
 
-export default Item;
+export default Item

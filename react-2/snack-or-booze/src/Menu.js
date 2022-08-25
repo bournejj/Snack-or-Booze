@@ -1,6 +1,6 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import "./Menu.css";
+import React from 'react'
+import { Link } from 'react-router-dom'
+import './Menu.css'
 import {
   Card,
   CardBody,
@@ -8,22 +8,20 @@ import {
   CardText,
   ListGroup,
   ListGroupItem
-} from "reactstrap";
+} from 'reactstrap'
 
-function Menu({ items, title }) {
-
+function Menu ({ items, title }) {
   console.log(items)
 
   return (
     <section className="col-md-4">
       <Card>
         <CardBody>
-         {title === 'Drinks' ? 
-          <CardTitle className="font-weight-bold text-center">
+         {title === 'Drinks'
+           ? <CardTitle className="font-weight-bold text-center">
             Drinks Menu
           </CardTitle>
-          : 
-          <CardTitle className="font-weight-bold text-center">
+           : <CardTitle className="font-weight-bold text-center">
           Food Menu
         </CardTitle>
           }
@@ -31,33 +29,32 @@ function Menu({ items, title }) {
             Some quick example text to build on the card title and make up the
             bulk of the card's content.
           </CardText>
-          {title === 'Drinks' ?
-          <ListGroup>
-            
+          {title === 'Drinks'
+            ? <ListGroup>
+
             {items.map(item => (
 
               <Link to={`/drinks/${item.id}`} key={item.id}>
                 <ListGroupItem>{item.name}</ListGroupItem>
               </Link>
-              
+
             ))}
           </ListGroup>
-          : <ListGroup>
-            
+            : <ListGroup>
+
           {items.map(item => (
 
             <Link to={`/snacks/${item.id}`} key={item.id}>
               <ListGroupItem>{item.name}</ListGroupItem>
             </Link>
-            
+
           ))}
         </ListGroup>}
         </CardBody>
       </Card>
     </section>
-    
-  );
-  
+
+  )
 }
 
-export default Menu;
+export default Menu

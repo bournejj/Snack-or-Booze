@@ -1,9 +1,9 @@
-import React from "react";
-import "./NavBar.css";
-import { NavLink } from "react-router-dom";
-import { Navbar, Nav, NavItem } from "reactstrap";
+import React from 'react'
+import './NavBar.css'
+import { NavLink } from 'react-router-dom'
+import { Navbar, Nav, NavItem } from 'reactstrap'
 
-function NavBar() {
+function NavBar () {
   return (
     <div>
       <Navbar expand="md">
@@ -13,7 +13,7 @@ function NavBar() {
 
         <Nav className="ml-auto" navbar>
           <NavItem>
-            <NavLink  id = 'snacks'exact to="/snacks">Snacks</NavLink>
+            <NavLink id = 'snacks'exact to="/snacks">Snacks</NavLink>
           </NavItem>
           <NavItem>
             <NavLink exact to="/drinks">Drinks</NavLink>
@@ -24,7 +24,7 @@ function NavBar() {
         </Nav>
       </Navbar>
     </div>
-  );
+  )
 }
 
-export default NavBar;
+export default NavBar

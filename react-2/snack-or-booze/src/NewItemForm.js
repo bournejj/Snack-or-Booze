@@ -1,31 +1,29 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react'
 
+const NewItemForm = ({ addItem }) => {
+  const INITIAL_STATE = {
+    name: '',
+    description: '',
+    recipe: '',
+    serve: '',
+    type: ''
+  }
 
-const NewItemForm = ({addItem}) => {
-    const INITIAL_STATE = {
-        name: '',
-        description: '',
-        recipe: '',
-        serve: '',
-        type: ''
-    }
+  const [formData, setFormData] = useState(INITIAL_STATE)
+  const handleChange = (e) => {
+    const { name, value } = e.target
+    setFormData(formData => ({
+      ...formData,
+      [name]: value
+    }))
+  }
+  const handleSubmit = (e) => {
+    e.preventDefault()
 
-    const [formData, setFormData] = useState(INITIAL_STATE)
-    const handleChange = (e) => {
-        const {name, value} = e.target;
-        setFormData(formData => ({
-            ...formData,
-            [name]: value
-        }))
-    }
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        
-        addItem(formData.name, formData.description, formData.recipe, formData.serve, formData.type)
+    addItem(formData.name, formData.description, formData.recipe, formData.serve, formData.type)
+  }
 
-    }
-
-    return (
+  return (
 
 <form onSubmit={handleSubmit}>
     <label htmlFor="name">Item</label>
@@ -60,7 +58,7 @@ const NewItemForm = ({addItem}) => {
     value={formData.serve}
     onChange={handleChange}
     />
-    <select 
+    <select
     name='type'
     onChange={handleChange}
     >
@@ -69,17 +67,10 @@ const NewItemForm = ({addItem}) => {
   </select>
 
   <button>Add Item</button>
-  
-
 
 </form>
 
-
-    )
-
-
-
-
+  )
 }
 
-export default NewItemForm;
+export default NewItemForm
